@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edgar Paula - Bitcoin, Lightning Network & Nostr Pioneer | 2026</title>
+    <meta name="description" content="Edgar Paula - Building decentralized solutions integrating Bitcoin, Lightning Network, and Nostr. Seminarian, Nutrition Student, Technology Innovator.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7cb342;
+            --dark: #2c2c2c;
+            --accent: #6b3e3e;
+            --light: #f8f9fa;
+            --text: #333;
+            --text-light: #666;
+            --border: #e0e0e0;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --light: #0d0d0d;
+                --text: #e8e8e8;
+                --text-light: #aaa;
+                --border: #333;
+                --white: #1a1a1a;
+                --dark: #e8e8e8;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            header {
+                background: rgba(26, 26, 26, 0.98);
+            }
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-brand img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.98rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-brand {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #9ccc65 0%, #7cb342 25%, #fafafa 100%);
+            padding: 3rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text .lead {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            max-width: 380px;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.1rem 2.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(124, 179, 66, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 60px;
+                min-height: auto;
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text .lead {
+                font-size: 1.1rem;
+            }
+
+            .hero-visual img {
+                max-width: 250px;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 7rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section.alternate {
+            background: var(--white);
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 2rem auto 0;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-intro {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 2.8rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .about-card h3 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .about-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.98rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mission Section */
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .mission-text h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .mission-text p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .mission-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .mission-list li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .mission-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-left: 6px solid var(--primary);
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            min-width: 80px;
+        }
+
+        .project-title-group h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .project-description {
+            font-size: 1.08rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            background: linear-gradient(135deg, rgba(124, 179, 66, 0.08) 0%, rgba(107, 62, 62, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .project-details h4 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-item strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Technology Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .tech-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tech-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-card h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .tech-card p {
+            color: var(--text-light);
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        /* Vision Section */
+        .vision-highlight {
+            background: linear-gradient(135deg, #9ccc65 0%, #7cb342 100%);
+            color: white;
+            padding: 3.5rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .vision-highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-highlight p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            opacity: 0.95;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .contact-text h3 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-text p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #9ccc65 0%, #7cb342 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 2rem 0;
+        }
+
+        .footer-credit {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="nav-brand">
+                <img src="logo.png" alt="epNODE">
+                <span id="brand-text">Edgar Paula</span>
+            </a>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="#about" id="nav-about">About</a></li>
+                    <li><a href="#mission" id="nav-mission">Vision & Mission</a></li>
+                    <li><a href="#projects" id="nav-projects">Projects</a></li>
+                    <li><a href="#technology" id="nav-technology">Technology</a></li>
+                    <li><a href="#contact" id="nav-contact">Contact</a></li>
+                </ul>
+                <button class="lang-toggle" id="langToggle">PT 🇧🇷</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 id="hero-title">Edgar Paula</h1>
+                <p class="lead" id="hero-lead">Pioneer in Decentralized Technologies</p>
+                <p class="description" id="hero-description">
+                    Building accessible, innovative solutions that bridge faith, health, and technology. Dedicated to making Bitcoin, Lightning Network, and Nostr accessible to everyone while maintaining values of freedom and personal sovereignty.
+                </p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary" id="btn-learn">Learn More</a>
+                    <a href="https://nosta.me/npub1gx95nc7f4yslxwqg8u84jt9zqcsg80lsecl0ld2zyesx4qpevf9sd2ph6j" class="btn btn-secondary" target="_blank" id="btn-nostr">Follow on Nostr</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="logo.png" alt="epNODE Logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="alternate">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="about-title">About Edgar Paula</h2>
+                <p id="about-intro-text">A multidisciplinary approach to technology and innovation</p>
+            </div>
+            
+            <p class="about-intro" id="about-intro-paragraph">
+                Edgar Paula is a seminarian in formation, nutrition student, and passionate advocate for decentralized technologies. With a unique perspective that combines spiritual values, scientific understanding, and technological innovation, Edgar works to bridge the gap between complex blockchain technologies and everyday people. His philosophy is rooted in the belief that decentralization is essential for human freedom and individual autonomy in the digital age.
+            </p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <span class="about-card-icon">⛪</span>
+                    <h3 id="card1-title">Spiritual Foundation</h3>
+                    <p id="card1-desc">As a seminarian in the diocese, Edgar brings values of integrity, service, and community to all his endeavors. Spiritual grounding informs his approach to technology and personal development.</p>
+                </div>
+                <div class="about-card">
+                    <span class="about-card-icon">🔬</span>
+                    <h3 id="card2-title">Scientific Mindset</h3>
+                    <p id="card2-desc">With formal education in nutrition, Edgar applies scientific rigor to understanding how technology impacts human wellness, from mental health to economic wellbeing and financial freedom.</p>
+                </div>
+                <div class="about-card">
+                    <span class="about-card-icon">⚡</span>
+                    <h3 id="card3-title">Technological Innovation</h3>
+                    <p id="card3-desc">Passionate about Bitcoin, Nostr, and decentralized systems, Edgar develops practical solutions that make cutting-edge technology accessible without sacrificing security or simplicity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="mission-title">Vision & Mission</h2>
+                <p id="mission-subtitle">Empowering individuals through accessible decentralization</p>
+            </div>
+
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h3 id="mission-vision-title">Our Vision</h3>
+                    <p id="mission-vision-p1">
+                        A world where decentralized technologies are not the domain of technical experts, but accessible tools for ordinary people. Where individuals maintain sovereignty over their data, finances, and digital identity without complexity or compromise.
+                    </p>
+                    <p id="mission-vision-p2">
+                        We envision a future where Bitcoin, Nostr, and Lightning Network form the backbone of a more equitable, censorship-resistant digital infrastructure that respects human freedom and individual agency.
+                    </p>
+                </div>
+                <div class="mission-text">
+                    <h3 id="mission-goals-title">Core Objectives</h3>
+                    <ul class="mission-list">
+                        <li id="goal1">Make blockchain and decentralized technology accessible and understandable</li>
+                        <li id="goal2">Build tools and solutions that prioritize user sovereignty and privacy</li>
+                        <li id="goal3">Create educational resources that demystify complex technological concepts</li>
+                        <li id="goal4">Foster communities dedicated to freedom and financial independence</li>
+                        <li id="goal5">Demonstrate that faith, health, and technology can coexist harmoniously</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vision-highlight">
+                <h3 id="vision-highlight-title">The Personal Motto</h3>
+                <p id="vision-highlight-text">🌱 <strong>Growing 1% Better Every Day</strong> - This principle guides every project and initiative. Continuous improvement, small but consistent progress, and the belief that incremental changes compound into transformative results over time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="alternate">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="projects-title">Current Projects & Initiatives</h2>
+                <p id="projects-subtitle">Building the future of decentralized technology</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- epNODE Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">⚡</span>
+                        <div class="project-title-group">
+                            <h3 id="epnode-title">epNODE</h3>
+                            <span class="project-badge" id="epnode-badge">Building 2026</span>
+                        </div>
+                    </div>
+                    <p class="project-description" id="epnode-desc">
+                        epNODE is a comprehensive solution designed to simplify the setup and operation of a Bitcoin node integrated with Lightning Network and Nostr. The project addresses a critical gap in the Bitcoin ecosystem: the complexity barrier that prevents ordinary people from running their own nodes and participating in decentralized networks.
+                    </p>
+                    <p class="project-description" id="epnode-desc2">
+                        Built with user experience as the primary focus, epNODE streamlines the technical requirements while maintaining full security and privacy standards. It serves as both a practical tool and an educational platform, helping users understand the importance of node sovereignty while removing friction from the adoption process.
+                    </p>
+                    
+                    <div class="project-details">
+                        <h4 id="epnode-components-title">Core Components</h4>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <strong id="feature-bitcoin">Bitcoin Node (BTCPay)</strong>
+                                <p id="feature-bitcoin-desc">Full blockchain validation and transaction verification for complete independence from centralized services</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="feature-lightning">Lightning Network (LND)</strong>
+                                <p id="feature-lightning-desc">Enable instant, low-cost payments and participate in the second-layer Bitcoin ecosystem</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="feature-nostr">Nostr Integration</strong>
+                                <p id="feature-nostr-desc">Decentralized identity, messaging, and social presence independent of platform control</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="feature-ux">Simplified UX</strong>
+                                <p id="feature-ux-desc">Intuitive interface that abstracts complexity without compromising security or transparency</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-details" style="margin-top: 2rem;">
+                        <h4 id="epnode-impact-title">Expected Impact</h4>
+                        <p id="epnode-impact-desc" style="color: var(--text); margin-top: 1rem;">
+                            By lowering the barrier to entry for node operation, epNODE democratizes access to decentralized infrastructure. It empowers individuals to take control of their financial lives, protect their privacy, and participate in truly peer-to-peer economic systems without relying on intermediaries.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Education & Content -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">📚</span>
+                        <div class="project-title-group">
+                            <h3 id="education-title">Education & Content</h3>
+                        </div>
+                    </div>
+                    <p class="project-description" id="education-desc">
+                        Comprehensive educational initiatives aimed at demystifying blockchain technology, Bitcoin, and Nostr. Through articles, guides, tutorials, and visual explanations, this project makes complex concepts accessible to audiences with varying levels of technical knowledge.
+                    </p>
+                    <p class="project-description" id="education-desc2">
+                        Content is designed to be actionable, covering everything from basic concepts (What is Bitcoin? Why does decentralization matter?) to intermediate topics (Running a Lightning node, Nostr profile management) and advanced subjects (Second-layer solutions, privacy considerations).
+                    </p>
+                    
+                    <div class="project-details">
+                        <h4 id="education-formats-title">Content Formats</h4>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <strong id="content-articles">Educational Articles</strong>
+                                <p id="content-articles-desc">In-depth guides explaining concepts, technologies, and best practices</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="content-tutorials">Step-by-Step Tutorials</strong>
+                                <p id="content-tutorials-desc">Practical guides for setting up tools and engaging with decentralized platforms</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="content-visual">Visual Explanations</strong>
+                                <p id="content-visual-desc">Diagrams and illustrations that clarify complex technical processes</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="content-community">Community Discussions</strong>
+                                <p id="content-community-desc">Engaging with audiences to answer questions and refine understanding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Building -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🤝</span>
+                        <div class="project-title-group">
+                            <h3 id="community-title">Community Development</h3>
+                        </div>
+                    </div>
+                    <p class="project-description" id="community-desc">
+                        Building vibrant, engaged communities around principles of decentralization, financial freedom, and personal sovereignty. Community is the backbone of any movement toward technological independence, and fostering genuine connections is essential.
+                    </p>
+                    <p class="project-description" id="community-desc2">
+                        Through Nostr, forums, and local meetups, these communities provide support, share knowledge, and collaborate on solutions. Members range from curious newcomers to experienced developers, creating an ecosystem where everyone can learn and contribute.
+                    </p>
+                    
+                    <div class="project-details">
+                        <h4 id="community-focus-title">Community Pillars</h4>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <strong id="pillar-learning">Collaborative Learning</strong>
+                                <p id="pillar-learning-desc">Peer-to-peer knowledge sharing and mentorship programs</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="pillar-support">Technical Support</strong>
+                                <p id="pillar-support-desc">Community members helping each other solve problems and implement solutions</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="pillar-development">Collective Development</strong>
+                                <p id="pillar-development-desc">Contributing to open-source projects and improving shared tools</p>
+                            </div>
+                            <div class="feature-item">
+                                <strong id="pillar-values">Shared Values</strong>
+                                <p id="pillar-values-desc">United around principles of freedom, privacy, and individual sovereignty</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="tech-title">Technology Stack & Philosophy</h2>
+                <p id="tech-subtitle">Building with open standards and user sovereignty</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon">₿</div>
+                    <h3 id="tech1-title">Bitcoin</h3>
+                    <p id="tech1-desc">The foundation of modern decentralized systems. Bitcoin represents a paradigm shift in how we think about money, value, and trust in networks. It's not just currency—it's a tool for freedom and individual sovereignty.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon">⚡</div>
+                    <h3 id="tech2-title">Lightning Network</h3>
+                    <p id="tech2-desc">Second-layer solution enabling instant, low-cost payments while maintaining Bitcoin's security guarantees. Lightning transforms Bitcoin from a settlement layer into a practical payments network for everyday transactions.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon">🌍</div>
+                    <h3 id="tech3-title">Nostr Protocol</h3>
+                    <p id="tech3-desc">Open protocol for decentralized, censorship-resistant social networks. Nostr enables individuals to own their identity and content, free from platform control or algorithmic manipulation.</p>
+                </div>
+            </div>
+
+            <div class="vision-highlight" style="margin-top: 4rem;">
+                <h3 id="tech-philosophy-title">Development Philosophy</h3>
+                <p id="tech-philosophy-p1" style="margin-bottom: 1rem;">
+                    We prioritize open-source development, allowing community scrutiny and contribution. Security is paramount—all code is designed to be auditable and transparent. User experience matters; we refuse to sacrifice usability for technical purity.
+                </p>
+                <p id="tech-philosophy-p2">
+                    Every tool we build must respect user sovereignty, protect privacy, and enable people to maintain full control over their data and digital assets. These aren't optional features—they're foundational requirements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="alternate">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="contact-title">Get Involved</h2>
+                <p id="contact-subtitle">Join the movement toward decentralized freedom</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h3 id="contact-heading">Support & Collaboration</h3>
+                    <p id="contact-p1">
+                        Whether you're interested in supporting the work, collaborating on projects, or joining the community, there are multiple ways to get involved. Your support—whether financial, technical, or community-based—helps accelerate the development of tools and education around decentralized technologies.
+                    </p>
+                    <p id="contact-p2">
+                        Connect on Nostr to follow updates, engage in discussions, and participate in the growing movement. All contributions, no matter the size, make a meaningful difference in making decentralization accessible to everyone.
+                    </p>
+                </div>
+                <div class="contact-buttons">
+                    <a href="https://coinos.io/edgarpaula" class="contact-link" target="_blank" id="btn-donate-bitcoin">
+                        💜 Donate Bitcoin
+                    </a>
+                    <a href="https://nosta.me/npub1gx95nc7f4yslxwqg8u84jt9zqcsg80lsecl0ld2zyesx4qpevf9sd2ph6j" class="contact-link" target="_blank" id="btn-follow-nostr">
+                        🌍 Follow on Nostr
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p id="footer-tagline">Building decentralized solutions for a freer future</p>
+            <div class="footer-links">
+                <a href="https://nosta.me/npub1gx95nc7f4yslxwqg8u84jt9zqcsg80lsecl0ld2zyesx4qpevf9sd2ph6j" target="_blank" id="footer-nostr">
+                    Nostr
+                </a>
+                <a href="https://coinos.io/edgarpaula" target="_blank" id="footer-bitcoin">
+                    Bitcoin
+                </a>
+            </div>
+            <div class="divider"></div>
+            <p class="footer-credit" id="footer-credit">© 2026 Edgar Paula. Building the future of decentralized technology.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Comprehensive Translation Dictionary
+        const translations = {
+            en: {
+                'brand-text': 'Edgar Paula',
+                'nav-about': 'About',
+                'nav-mission': 'Vision & Mission',
+                'nav-projects': 'Projects',
+                'nav-technology': 'Technology',
+                'nav-contact': 'Contact',
+                'langToggle': 'PT 🇧🇷',
+                
+                'hero-title': 'Edgar Paula',
+                'hero-lead': 'Pioneer in Decentralized Technologies',
+                'hero-description': 'Building accessible, innovative solutions that bridge faith, health, and technology. Dedicated to making Bitcoin, Lightning Network, and Nostr accessible to everyone while maintaining values of freedom and personal sovereignty.',
+                'btn-learn': 'Learn More',
+                'btn-nostr': 'Follow on Nostr',
+                
+                'about-title': 'About Edgar Paula',
+                'about-intro-text': 'A multidisciplinary approach to technology and innovation',
+                'about-intro-paragraph': 'Edgar Paula is a seminarian in formation, nutrition student, and passionate advocate for decentralized technologies. With a unique perspective that combines spiritual values, scientific understanding, and technological innovation, Edgar works to bridge the gap between complex blockchain technologies and everyday people. His philosophy is rooted in the belief that decentralization is essential for human freedom and individual autonomy in the digital age.',
+                
+                'card1-title': 'Spiritual Foundation',
+                'card1-desc': 'As a seminarian in the diocese, Edgar brings values of integrity, service, and community to all his endeavors. Spiritual grounding informs his approach to technology and personal development.',
+                'card2-title': 'Scientific Mindset',
+                'card2-desc': 'With formal education in nutrition, Edgar applies scientific rigor to understanding how technology impacts human wellness, from mental health to economic wellbeing and financial freedom.',
+                'card3-title': 'Technological Innovation',
+                'card3-desc': 'Passionate about Bitcoin, Nostr, and decentralized systems, Edgar develops practical solutions that make cutting-edge technology accessible without sacrificing security or simplicity.',
+                
+                'mission-title': 'Vision & Mission',
+                'mission-subtitle': 'Empowering individuals through accessible decentralization',
+                'mission-vision-title': 'Our Vision',
+                'mission-vision-p1': 'A world where decentralized technologies are not the domain of technical experts, but accessible tools for ordinary people. Where individuals maintain sovereignty over their data, finances, and digital identity without complexity or compromise.',
+                'mission-vision-p2': 'We envision a future where Bitcoin, Nostr, and Lightning Network form the backbone of a more equitable, censorship-resistant digital infrastructure that respects human freedom and individual agency.',
+                'mission-goals-title': 'Core Objectives',
+                'goal1': 'Make blockchain and decentralized technology accessible and understandable',
+                'goal2': 'Build tools and solutions that prioritize user sovereignty and privacy',
+                'goal3': 'Create educational resources that demystify complex technological concepts',
+                'goal4': 'Foster communities dedicated to freedom and financial independence',
+                'goal5': 'Demonstrate that faith, health, and technology can coexist harmoniously',
+                
+                'vision-highlight-title': 'The Personal Motto',
+                'vision-highlight-text': '🌱 <strong>Growing 1% Better Every Day</strong> - This principle guides every project and initiative. Continuous improvement, small but consistent progress, and the belief that incremental changes compound into transformative results over time.',
+                
+                'projects-title': 'Current Projects & Initiatives',
+                'projects-subtitle': 'Building the future of decentralized technology',
+                
+                'epnode-title': 'epNODE',
+                'epnode-badge': 'Building 2026',
+                'epnode-desc': 'epNODE is a comprehensive solution designed to simplify the setup and operation of a Bitcoin node integrated with Lightning Network and Nostr. The project addresses a critical gap in the Bitcoin ecosystem: the complexity barrier that prevents ordinary people from running their own nodes and participating in decentralized networks.',
+                'epnode-desc2': 'Built with user experience as the primary focus, epNODE streamlines the technical requirements while maintaining full security and privacy standards. It serves as both a practical tool and an educational platform, helping users understand the importance of node sovereignty while removing friction from the adoption process.',
+                'epnode-components-title': 'Core Components',
+                'feature-bitcoin': 'Bitcoin Node (BTCPay)',
+                'feature-bitcoin-desc': 'Full blockchain validation and transaction verification for complete independence from centralized services',
+                'feature-lightning': 'Lightning Network (LND)',
+                'feature-lightning-desc': 'Enable instant, low-cost payments and participate in the second-layer Bitcoin ecosystem',
+                'feature-nostr': 'Nostr Integration',
+                'feature-nostr-desc': 'Decentralized identity, messaging, and social presence independent of platform control',
+                'feature-ux': 'Simplified UX',
+                'feature-ux-desc': 'Intuitive interface that abstracts complexity without compromising security or transparency',
+                'epnode-impact-title': 'Expected Impact',
+                'epnode-impact-desc': 'By lowering the barrier to entry for node operation, epNODE democratizes access to decentralized infrastructure. It empowers individuals to take control of their financial lives, protect their privacy, and participate in truly peer-to-peer economic systems without relying on intermediaries.',
+                
+                'education-title': 'Education & Content',
+                'education-desc': 'Comprehensive educational initiatives aimed at demystifying blockchain technology, Bitcoin, and Nostr. Through articles, guides, tutorials, and visual explanations, this project makes complex concepts accessible to audiences with varying levels of technical knowledge.',
+                'education-desc2': 'Content is designed to be actionable, covering everything from basic concepts (What is Bitcoin? Why does decentralization matter?) to intermediate topics (Running a Lightning node, Nostr profile management) and advanced subjects (Second-layer solutions, privacy considerations).',
+                'education-formats-title': 'Content Formats',
+                'content-articles': 'Educational Articles',
+                'content-articles-desc': 'In-depth guides explaining concepts, technologies, and best practices',
+                'content-tutorials': 'Step-by-Step Tutorials',
+                'content-tutorials-desc': 'Practical guides for setting up tools and engaging with decentralized platforms',
+                'content-visual': 'Visual Explanations',
+                'content-visual-desc': 'Diagrams and illustrations that clarify complex technical processes',
+                'content-community': 'Community Discussions',
+                'content-community-desc': 'Engaging with audiences to answer questions and refine understanding',
+                
+                'community-title': 'Community Development',
+                'community-desc': 'Building vibrant, engaged communities around principles of decentralization, financial freedom, and personal sovereignty. Community is the backbone of any movement toward technological independence, and fostering genuine connections is essential.',
+                'community-desc2': 'Through Nostr, forums, and local meetups, these communities provide support, share knowledge, and collaborate on solutions. Members range from curious newcomers to experienced developers, creating an ecosystem where everyone can learn and contribute.',
+                'community-focus-title': 'Community Pillars',
+                'pillar-learning': 'Collaborative Learning',
+                'pillar-learning-desc': 'Peer-to-peer knowledge sharing and mentorship programs',
+                'pillar-support': 'Technical Support',
+                'pillar-support-desc': 'Community members helping each other solve problems and implement solutions',
+                'pillar-development': 'Collective Development',
+                'pillar-development-desc': 'Contributing to open-source projects and improving shared tools',
+                'pillar-values': 'Shared Values',
+                'pillar-values-desc': 'United around principles of freedom, privacy, and individual sovereignty',
+                
+                'tech-title': 'Technology Stack & Philosophy',
+                'tech-subtitle': 'Building with open standards and user sovereignty',
+                'tech1-title': 'Bitcoin',
+                'tech1-desc': 'The foundation of modern decentralized systems. Bitcoin represents a paradigm shift in how we think about money, value, and trust in networks. It\'s not just currency—it\'s a tool for freedom and individual sovereignty.',
+                'tech2-title': 'Lightning Network',
+                'tech2-desc': 'Second-layer solution enabling instant, low-cost payments while maintaining Bitcoin\'s security guarantees. Lightning transforms Bitcoin from a settlement layer into a practical payments network for everyday transactions.',
+                'tech3-title': 'Nostr Protocol',
+                'tech3-desc': 'Open protocol for decentralized, censorship-resistant social networks. Nostr enables individuals to own their identity and content, free from platform control or algorithmic manipulation.',
+                'tech-philosophy-title': 'Development Philosophy',
+                'tech-philosophy-p1': 'We prioritize open-source development, allowing community scrutiny and contribution. Security is paramount—all code is designed to be auditable and transparent. User experience matters; we refuse to sacrifice usability for technical purity.',
+                'tech-philosophy-p2': 'Every tool we build must respect user sovereignty, protect privacy, and enable people to maintain full control over their data and digital assets. These aren\'t optional features—they\'re foundational requirements.',
+                
+                'contact-title': 'Get Involved',
+                'contact-subtitle': 'Join the movement toward decentralized freedom',
+                'contact-heading': 'Support & Collaboration',
+                'contact-p1': 'Whether you\'re interested in supporting the work, collaborating on projects, or joining the community, there are multiple ways to get involved. Your support—whether financial, technical, or community-based—helps accelerate the development of tools and education around decentralized technologies.',
+                'contact-p2': 'Connect on Nostr to follow updates, engage in discussions, and participate in the growing movement. All contributions, no matter the size, make a meaningful difference in making decentralization accessible to everyone.',
+                'btn-donate-bitcoin': '💜 Donate Bitcoin',
+                'btn-follow-nostr': '🌍 Follow on Nostr',
+                
+                'footer-tagline': 'Building decentralized solutions for a freer future',
+                'footer-nostr': 'Nostr',
+                'footer-bitcoin': 'Bitcoin',
+                'footer-credit': '© 2026 Edgar Paula. Building the future of decentralized technology.'
+            },
+            pt: {
+                'brand-text': 'Edgar Paula',
+                'nav-about': 'Sobre',
+                'nav-mission': 'Visão & Missão',
+                'nav-projects': 'Projetos',
+                'nav-technology': 'Tecnologia',
+                'nav-contact': 'Contato',
+                'langToggle': 'EN 🇺🇸',
+                
+                'hero-title': 'Edgar Paula',
+                'hero-lead': 'Pioneiro em Tecnologias Descentralizadas',
+                'hero-description': 'Construindo soluções inovadoras e acessíveis que conectam fé, saúde e tecnologia. Dedicado a tornar Bitcoin, Lightning Network e Nostr acessíveis a todos mantendo valores de liberdade e soberania pessoal.',
+                'btn-learn': 'Saiba Mais',
+                'btn-nostr': 'Siga no Nostr',
+                
+                'about-title': 'Sobre Edgar Paula',
+                'about-intro-text': 'Uma abordagem multidisciplinar para tecnologia e inovação',
+                'about-intro-paragraph': 'Edgar Paula é um seminarista em formação, acadêmico de nutrição e apaixonado defensor de tecnologias descentralizadas. Com uma perspectiva única que combina valores espirituais, entendimento científico e inovação tecnológica, Edgar trabalha para reduzir a lacuna entre tecnologias blockchain complexas e pessoas comuns. Sua filosofia é enraizada na crença de que a descentralização é essencial para a liberdade humana e autonomia individual na era digital.',
+                
+                'card1-title': 'Fundamento Espiritual',
+                'card1-desc': 'Como seminarista na diocese, Edgar traz valores de integridade, serviço e comunidade a todos seus esforços. O enraizamento espiritual informa sua abordagem à tecnologia e desenvolvimento pessoal.',
+                'card2-title': 'Mentalidade Científica',
+                'card2-desc': 'Com educação formal em nutrição, Edgar aplica rigor científico na compreensão de como a tecnologia impacta o bem-estar humano, da saúde mental à autonomia econômica e liberdade financeira.',
+                'card3-title': 'Inovação Tecnológica',
+                'card3-desc': 'Apaixonado por Bitcoin, Nostr e sistemas descentralizados, Edgar desenvolve soluções práticas que tornam tecnologia de ponta acessível sem sacrificar segurança ou simplicidade.',
+                
+                'mission-title': 'Visão & Missão',
+                'mission-subtitle': 'Capacitando indivíduos através da descentralização acessível',
+                'mission-vision-title': 'Nossa Visão',
+                'mission-vision-p1': 'Um mundo onde tecnologias descentralizadas não são domínio de especialistas técnicos, mas ferramentas acessíveis para pessoas comuns. Onde indivíduos mantêm soberania sobre seus dados, finanças e identidade digital sem complexidade ou compromisso.',
+                'mission-vision-p2': 'Envisionar um futuro onde Bitcoin, Nostr e Lightning Network formem a base de uma infraestrutura digital mais equitativa, resistente à censura, que respeite liberdade humana e agência individual.',
+                'mission-goals-title': 'Objetivos Principais',
+                'goal1': 'Tornar blockchain e tecnologia descentralizada acessível e compreensível',
+                'goal2': 'Construir ferramentas e soluções que priorizam soberania do usuário e privacidade',
+                'goal3': 'Criar recursos educacionais que desmistifiquem conceitos tecnológicos complexos',
+                'goal4': 'Fomentar comunidades dedicadas à liberdade e independência financeira',
+                'goal5': 'Demonstrar que fé, saúde e tecnologia podem coexistir harmoniosamente',
+                
+                'vision-highlight-title': 'O Lema Pessoal',
+                'vision-highlight-text': '🌱 <strong>Hoje 1% melhor que ontem</strong> - Este princípio guia cada projeto e iniciativa. Melhoria contínua, progresso pequeno mas consistente, e a crença de que mudanças incrementais se compõem em resultados transformadores ao longo do tempo.',
+                
+                'projects-title': 'Projetos Atuais & Iniciativas',
+                'projects-subtitle': 'Construindo o futuro da tecnologia descentralizada',
+                
+                'epnode-title': 'epNODE',
+                'epnode-badge': 'Em Construção 2026',
+                'epnode-desc': 'epNODE é uma solução abrangente projetada para simplificar a configuração e operação de um nó Bitcoin integrado com Lightning Network e Nostr. O projeto aborda uma lacuna crítica no ecossistema Bitcoin: a barreira de complexidade que impede pessoas comuns de executar seus próprios nós e participar de redes descentralizadas.',
+                'epnode-desc2': 'Construído com experiência do usuário como foco principal, epNODE simplifica os requisitos técnicos enquanto mantém padrões completos de segurança e privacidade. Serve como ferramenta prática e plataforma educacional, ajudando usuários a entender a importância da soberania de nó enquanto remove fricção do processo de adoção.',
+                'epnode-components-title': 'Componentes Principais',
+                'feature-bitcoin': 'Nó Bitcoin (BTCPay)',
+                'feature-bitcoin-desc': 'Validação completa de blockchain e verificação de transações para independência total de serviços centralizados',
+                'feature-lightning': 'Lightning Network (LND)',
+                'feature-lightning-desc': 'Habilite pagamentos instantâneos e de baixo custo e participe do ecossistema de segunda camada Bitcoin',
+                'feature-nostr': 'Integração Nostr',
+                'feature-nostr-desc': 'Identidade descentralizada, mensagens e presença social independente do controle de plataforma',
+                'feature-ux': 'UX Simplificada',
+                'feature-ux-desc': 'Interface intuitiva que abstrai complexidade sem comprometer segurança ou transparência',
+                'epnode-impact-title': 'Impacto Esperado',
+                'epnode-impact-desc': 'Ao reduzir a barreira de entrada para operação de nós, epNODE democratiza acesso a infraestrutura descentralizada. Capacita indivíduos a tomar controle de suas vidas financeiras, proteger privacidade e participar de sistemas econômicos verdadeiramente peer-to-peer sem depender de intermediários.',
+                
+                'education-title': 'Educação & Conteúdo',
+                'education-desc': 'Iniciativas educacionais abrangentes visando desmistificar tecnologia blockchain, Bitcoin e Nostr. Através de artigos, guias, tutoriais e explicações visuais, este projeto torna conceitos complexos acessíveis a audiências com níveis variados de conhecimento técnico.',
+                'education-desc2': 'Conteúdo é projetado para ser acionável, cobrindo tudo desde conceitos básicos (O que é Bitcoin? Por que descentralização importa?) até tópicos intermediários (Executar nó Lightning, gerenciar perfil Nostr) e assuntos avançados (Soluções de segunda camada, considerações de privacidade).',
+                'education-formats-title': 'Formatos de Conteúdo',
+                'content-articles': 'Artigos Educacionais',
+                'content-articles-desc': 'Guias aprofundados explicando conceitos, tecnologias e melhores práticas',
+                'content-tutorials': 'Tutoriais Passo-a-Passo',
+                'content-tutorials-desc': 'Guias práticos para configurar ferramentas e engajar com plataformas descentralizadas',
+                'content-visual': 'Explicações Visuais',
+                'content-visual-desc': 'Diagramas e ilustrações que clarificam processos técnicos complexos',
+                'content-community': 'Discussões Comunitárias',
+                'content-community-desc': 'Engajamento com audiências para responder perguntas e refinar entendimento',
+                
+                'community-title': 'Desenvolvimento Comunitário',
+                'community-desc': 'Construindo comunidades vibrantes e engajadas em torno de princípios de descentralização, liberdade financeira e soberania pessoal. Comunidade é a espinha dorsal de qualquer movimento para independência tecnológica, e fomentar conexões genuínas é essencial.',
+                'community-desc2': 'Através de Nostr, fóruns e encontros locais, essas comunidades fornecem suporte, compartilham conhecimento e colaboram em soluções. Membros variam de curiosos iniciantes a desenvolvedores experientes, criando um ecossistema onde todos podem aprender e contribuir.',
+                'community-focus-title': 'Pilares Comunitários',
+                'pillar-learning': 'Aprendizado Colaborativo',
+                'pillar-learning-desc': 'Compartilhamento de conhecimento peer-to-peer e programas de mentoria',
+                'pillar-support': 'Suporte Técnico',
+                'pillar-support-desc': 'Membros da comunidade se ajudando a resolver problemas e implementar soluções',
+                'pillar-development': 'Desenvolvimento Coletivo',
+                'pillar-development-desc': 'Contribuindo para projetos open-source e melhorando ferramentas compartilhadas',
+                'pillar-values': 'Valores Compartilhados',
+                'pillar-values-desc': 'Unido em torno de princípios de liberdade, privacidade e soberania individual',
+                
+                'tech-title': 'Stack de Tecnologia & Filosofia',
+                'tech-subtitle': 'Construindo com padrões abertos e soberania do usuário',
+                'tech1-title': 'Bitcoin',
+                'tech1-desc': 'A fundação de sistemas modernos descentralizados. Bitcoin representa uma mudança de paradigma em como pensamos sobre dinheiro, valor e confiança em redes. Não é apenas moeda—é uma ferramenta para liberdade e soberania individual.',
+                'tech2-title': 'Lightning Network',
+                'tech2-desc': 'Solução de segunda camada habilitando pagamentos instantâneos e de baixo custo enquanto mantém as garantias de segurança do Bitcoin. Lightning transforma Bitcoin de uma camada de liquidação em uma rede de pagamentos prática para transações cotidianas.',
+                'tech3-title': 'Protocolo Nostr',
+                'tech3-desc': 'Protocolo aberto para redes sociais descentralizadas e resistentes à censura. Nostr habilita indivíduos a ser donos de sua identidade e conteúdo, livres do controle de plataforma ou manipulação algorítmica.',
+                'tech-philosophy-title': 'Filosofia de Desenvolvimento',
+                'tech-philosophy-p1': 'Priorizamos desenvolvimento open-source, permitindo escrutínio e contribuição comunitária. Segurança é primordial—todo código é projetado para ser auditável e transparente. Experiência do usuário importa; recusamos sacrificar usabilidade por pureza técnica.',
+                'tech-philosophy-p2': 'Cada ferramenta que construímos deve respeitar soberania do usuário, proteger privacidade e habilitar pessoas a manter controle completo sobre seus dados e ativos digitais. Estas não são características opcionais—são requisitos fundamentais.',
+                
+                'contact-title': 'Envolver-se',
+                'contact-subtitle': 'Junte-se ao movimento em direção à liberdade descentralizada',
+                'contact-heading': 'Suporte & Colaboração',
+                'contact-p1': 'Se você está interessado em apoiar o trabalho, colaborar em projetos ou juntar-se à comunidade, existem múltiplas formas de envolver-se. Seu suporte—seja financeiro, técnico ou comunitário—ajuda a acelerar o desenvolvimento de ferramentas e educação em torno de tecnologias descentralizadas.',
+                'contact-p2': 'Conecte-se no Nostr para acompanhar atualizações, engajar em discussões e participar do movimento crescente. Todas as contribuições, não importa o tamanho, fazem uma diferença significativa em tornar descentralização acessível a todos.',
+                'btn-donate-bitcoin': '💜 Doar Bitcoin',
+                'btn-follow-nostr': '🌍 Siga no Nostr',
+                
+                'footer-tagline': 'Construindo soluções descentralizadas para um futuro mais livre',
+                'footer-nostr': 'Nostr',
+                'footer-bitcoin': 'Bitcoin',
+                'footer-credit': '© 2026 Edgar Paula. Construindo o futuro da tecnologia descentralizada.'
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    const text = translations[lang][key];
+                    if (text.includes('<')) {
+                        element.innerHTML = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const newLang = currentLang === 'en' ? 'pt' : 'en';
+            setLanguage(newLang);
+        });
+
+        // Initialize
+        const savedLang = localStorage.getItem('preferredLanguage');
+        const browserLang = navigator.language.startsWith('pt') ? 'pt' : 'en';
+        setLanguage(savedLang || browserLang);
+    </script>
+</body>
+</html>
